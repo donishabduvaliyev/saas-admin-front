@@ -12,9 +12,9 @@ import Setting from './pages/Setting'
 import Profile from './pages/Profile'
 import Shop from './pages/Shop'
 import useAuthStore from './store/auth'
-import LogIn from './pages/LogIn'
 import ProtectedRoute from './components/ProtectedRoute'
 import BroadCast from './pages/BroadCast'
+import Login from './pages/LogIn'
 
 const protectedRoutes = [
 
@@ -39,20 +39,20 @@ const App = () => {
 
   return (
     <Routes>
-      <Route path="/login" element={<LogIn />} />
+      <Route path="/login" element={<Login />} />
 
       <Route path="*" element={<NotFound />} />
       <Route path='/' element={<Layout />} >
-        <Route path="/map" element={<ProtectedRoute role="shop_admin"><MapView /></ProtectedRoute>} />
-        <Route index element={<ProtectedRoute role="shop_admin"><Home /></ProtectedRoute>} />
-        <Route path="/dashboard" element={<ProtectedRoute role="shop_admin"><Dashboard /></ProtectedRoute>} />
-        <Route path="/orders" element={<ProtectedRoute role="shop_admin"><Orders /></ProtectedRoute>} />
-        <Route path="/clients" element={<ProtectedRoute role="shop_admin"><Clients /></ProtectedRoute>} />
-        <Route path="/analytics" element={<ProtectedRoute role="shop_admin"><Analytics /></ProtectedRoute>} />
-        <Route path="/setting" element={<ProtectedRoute role="shop_admin"><Setting /></ProtectedRoute>} />
-        <Route path="/profile" element={<ProtectedRoute role="shop_admin"><Profile /></ProtectedRoute>} />
-        <Route path="/shop" element={<ProtectedRoute role="shop_admin"><Shop /></ProtectedRoute>} />
-        <Route path="/broadCast" element={<ProtectedRoute role="shop_admin" ><BroadCast /></ProtectedRoute>} />
+        <Route path="/map" element={<ProtectedRoute role="shopowner"><MapView /></ProtectedRoute>} />
+        <Route index element={<ProtectedRoute role="shopowner"><Home /></ProtectedRoute>} />
+        <Route path="/dashboard" element={<ProtectedRoute role="shopowner"><Dashboard /></ProtectedRoute>} />
+        <Route path="/orders" element={<ProtectedRoute role="shopowner"><Orders /></ProtectedRoute>} />
+        <Route path="/clients" element={<ProtectedRoute role="shopowner"><Clients /></ProtectedRoute>} />
+        <Route path="/analytics" element={<ProtectedRoute role="shopowner"><Analytics /></ProtectedRoute>} />
+        <Route path="/setting" element={<ProtectedRoute role="shopowner"><Setting /></ProtectedRoute>} />
+        <Route path="/profile" element={<ProtectedRoute role="shopowner"><Profile /></ProtectedRoute>} />
+        <Route path="/shop" element={<ProtectedRoute role="shopowner"><Shop /></ProtectedRoute>} />
+        <Route path="/broadCast" element={<ProtectedRoute role="shopowner" ><BroadCast /></ProtectedRoute>} />
 
 
 
