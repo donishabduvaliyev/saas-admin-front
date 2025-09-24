@@ -18,11 +18,11 @@ import Login from './pages/LogIn'
 
 const protectedRoutes = [
 
-  { path: "/superDashboard", element: <Dashboard />, roles: "super_admin" },
-  { path: "/superAnalytics", element: <Dashboard />, roles: "super_admin" },
-  { path: "/superAIconnect", element: <Dashboard />, roles: "super_admin" },
-  { path: "/superShops", element: <Dashboard />, roles: "super_admin" },
-  { path: "/superBroadCast", element: <Dashboard />, roles: "super_admin" },
+  { path: "/superDashboard", Componetn: <Dashboard />, role: "superadmin" },
+  { path: "/superAnalytics", Componetn: <Dashboard />, role: "superadmin" },
+  { path: "/superAIconnect", Componetn: <Dashboard />, role: "superadmin" },
+  { path: "/superShops", Componetn: <Dashboard />, role: "superadmin" },
+  { path: "/superBroadCast", Componetn: <Dashboard />, role: "superadmin" },
 
 ]
 
@@ -44,7 +44,7 @@ const App = () => {
       <Route path="*" element={<NotFound />} />
       <Route path='/' element={<Layout />} >
         <Route path="/map" element={<ProtectedRoute role="shopowner"><MapView /></ProtectedRoute>} />
-        <Route index element={<ProtectedRoute role="shopowner"><Home /></ProtectedRoute>} />
+        <Route index element={<ProtectedRoute role="superadmin"><Home /></ProtectedRoute>} />
         <Route path="/dashboard" element={<ProtectedRoute role="shopowner"><Dashboard /></ProtectedRoute>} />
         <Route path="/orders" element={<ProtectedRoute role="shopowner"><Orders /></ProtectedRoute>} />
         <Route path="/clients" element={<ProtectedRoute role="shopowner"><Clients /></ProtectedRoute>} />
@@ -57,11 +57,11 @@ const App = () => {
 
 
 
-        {protectedRoutes.map(({ path, element, roles }, i) => (
+        {protectedRoutes.map(({ path, Componetn, role }, i) => (
           <Route
             key={i}
             path={path}
-            element={<ProtectedRoute role={roles}>{element}</ProtectedRoute>}
+            element={<ProtectedRoute role={role}>{Componetn}</ProtectedRoute>}
           />
         ))}
 

@@ -1,29 +1,29 @@
-import React from 'react'
+import React, { useState } from 'react'
 import useAuthStore from '../store/auth';
 import {
   LayoutDashboard, ShoppingCart, Package, Users2, LineChart, Settings, ChevronLeft, ChevronRight, Sun, Moon, Search, Bell, User, MoreVertical, PlusCircle, Filter, FileDown
 } from 'lucide-react';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const Sidebar = () => {
   const { user } = useAuthStore();
   const location = useLocation();
-
+const [expanded, setExpanded] = useState(true);
     const shopAdminMenu = [
-    { icon: <LayoutDashboard size={20} />, text: 'Dashboard', page: 'Dashboard' },
-    { icon: <ShoppingCart size={20} />, text: 'Shops', page: 'Shops' },
-    { icon: <Package size={20} />, text: 'Products', page: 'Products' },
-    { icon: <Users2 size={20} />, text: 'Orders', page: 'Orders' },
-    { icon: <Users2 size={20} />, text: 'Users', page: 'Users' },
-    { icon: <LineChart size={20} />, text: 'Analytics', page: 'Analytics' },
-    { icon: <Settings size={20} />, text: 'Settings', page: 'Settings' },
+    { icon: <LayoutDashboard size={20} />, label: 'Dashboard', path: '/Dashboard' },
+    { icon: <ShoppingCart size={20} />, label: 'Shops', path: '/Shops' },
+    { icon: <Package size={20} />, label: 'Products', path: '/Products' },
+    { icon: <Users2 size={20} />, label: 'Orders', path: '/Orders' },
+    { icon: <Users2 size={20} />, label: 'Users', path: '/Users' },
+    { icon: <LineChart size={20} />, label: 'Analytics', path: '/Analytics' },
+    { icon: <Settings size={20} />, label: 'Settings', path: '/Settings' },
   ];
   const superadminMenu = [
 
-    { icon: <LayoutDashboard size={20} />, path: '/dashboard', label: 'Dashboard' },
-    { icon: <ShoppingCart size={20} />, path: '/shops', label: 'Shops' },
-    { icon: <Package size={20} />, path: '/products', label: 'Products' },    
-    { icon: <Users2 size={20} />, path: '/orders', label: 'Orders' },
+    { icon: <LayoutDashboard size={20} />, path: '/dashboard', label: 'Dashboardadmin' },
+    { icon: <ShoppingCart size={20} />, path: '/shops', label: 'Shopsadmin' },
+    { icon: <Package size={20} />, path: '/products', label: 'Productsadmin' },    
+    { icon: <Users2 size={20} />, path: '/orders', label: 'Ordersadmin' },
     { icon: <Users2 size={20} />, path: '/users', label: 'Users' },
     { icon: <LineChart size={20} />, path: '/analytics', label: 'Analytics' },
     { icon: <Settings size={20} />, path: '/settings', label: 'Settings' },

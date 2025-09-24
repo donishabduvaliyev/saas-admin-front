@@ -15,6 +15,10 @@ const ProtectedRoute = ({ children, role }) => {
 
 
     if (role && user.role !== role) {
+        console.log(user.role);
+        console.log(role);
+
+
         return <Navigate to="/unauthorized" replace />;
     }
     return children;
